@@ -19,14 +19,36 @@ Use console.log() to clearly show the before-and-after type conversions.
 */
 
 
-let result = "5" - 2;
+let result = Number("5") - 2; // the code seemed fine but I used number() to avoid implicit conversion
 console.log("The result is: " + result);
 
-let isValid = Boolean("false");
+let isValid =("false" === "true"); //isValid needs to be false, but Boolean() of "false" is true which causes a bug or wrong answer.
 if (isValid) {
     console.log("This is valid!");
+} else { 
+    console.log("This is not valid!");
 }
+    
+
 
 let age = "25";
-let totalAge = age + 5;
+let totalAge = Number(age) + 5; // if we don't use number(), the result will be 255. 
 console.log("Total Age: " + totalAge);
+
+/* Part 2*/
+
+  /* Implicit Conversion */
+  let numberOfApples = null;
+  console.log(numberOfApples); // it shows null
+
+  let totalNumberOfApples = 25 + numberOfApples;
+  console.log(totalNumberOfApples); // it shows 25
+
+
+  /* Explicit Conversion */
+
+  let userAge = "twenty";
+  console.log(userAge, typeof userAge);
+  let newInput = Number(userAge);
+  console.log(newInput, typeof newInput); //console.log() shows NaN
+
